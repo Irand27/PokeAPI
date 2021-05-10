@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poke_api/poke_controller.dart';
 
 class PokeView extends StatefulWidget {
   @override
@@ -6,10 +7,17 @@ class PokeView extends StatefulWidget {
 }
 
 class _PokeViewState extends State<PokeView> {
+
+  final controller = PokeController();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Material(
+      child: Column(children: [
+        ElevatedButton(onPressed: (){
+          controller.loadPokemon();
+        }, child: Text('Load Pokemon'))
+      ]
+      ),
     );
   }
 }
