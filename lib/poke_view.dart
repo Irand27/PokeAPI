@@ -19,6 +19,7 @@ class _PokeViewState extends State<PokeView> {
             if (snapshot.connectionState != ConnectionState.done) {
               return CircularProgressIndicator();
             }
+            print(snapshot.hasData);
             if (snapshot.hasData) {
               return Column(
                 children: [

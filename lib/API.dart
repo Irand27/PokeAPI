@@ -8,8 +8,7 @@ class API {
         await http.get(Uri.https('pokeapi.co', '/api/v2/pokemon/$number'));
 
     if (response.statusCode == 200) {
-      final pokemon = Pokemon.fromJson(jsonDecode(response.body));
-      print(pokemon.nome);
+      return Pokemon.fromJson(jsonDecode(response.body));
     } else {
       return Future.error('Pokemon not found');
     }
