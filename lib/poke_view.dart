@@ -21,22 +21,37 @@ class _PokeViewState extends State<PokeView> {
             }
             print(snapshot.hasData);
             if (snapshot.hasData) {
-              return Column(
-                children: [
-                  Image.network(
-                    snapshot.data.urlImage,
-                    height: 400,
-                    width: 400,
-                    fit: BoxFit.cover,
-                  ),
-                  Text(
-                    snapshot.data.nome,
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black,
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Image.network(
+                      snapshot.data.urlImage,
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
                     ),
-                  ),
-                ],
+                    Text(
+                      snapshot.data.nome,
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Container(
+                      height: 100,
+                      width: 200,
+                      child: ListView.builder(
+                          itemCount: snapshot.data.abilities.length,
+                          itemBuilder: (context, index) {
+                            return Text(
+                              snapshot.data.abilities[index].name,
+                              style: TextStyle(fontSize: 25),
+                              textAlign: TextAlign.center,
+                            );
+                          }),
+                    ),
+                  ],
+                ),
               );
             } else if (snapshot.hasError) {
               return Text(

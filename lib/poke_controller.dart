@@ -9,6 +9,6 @@ class PokeController {
   Future<Pokemon> get pokemon => model.pokemon;
 
   loadPokemon() {
-    model.fetchPokemon(Random().nextInt(1000));
+    model.fetchPokemon(Random().nextInt(898));
   }
 }
